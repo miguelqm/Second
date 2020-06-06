@@ -1,0 +1,66 @@
+let direction;
+
+function setup() {
+  createCanvas(800, 800);
+  x = width / 2;
+  y = height / 2; 
+  v = 1;
+  background(0);
+  direction = 5;
+  v = 1;
+}
+
+function draw(){  
+  background(0);
+  fill(255);
+  circle(x,y,50);
+
+  if(x+25 > 800 || x-25 < 0)
+    direction = -direction;
+  x = x+direction;
+
+  y = y + v;
+  v = v + 1;
+  if(y+25 >= 800)
+    v = -v + 1;
+
+  text('Speed = ' + v, 50,50);
+}
+
+function draw00(){  
+  background(0);
+  fill(255);
+  circle(x,y,50);
+
+  if(x+25 > 800 || x-25 < 0)
+    direction = -direction;
+  x = x+direction;
+
+  y = y + v;
+  v = v + 1;
+  if(y+25 >= 800)
+    v = -v + 1;
+
+  text('Speed = ' + v, 50,50);
+}
+
+function randomDraw() {
+  stroke(255, 100);
+  strokeWeight(5);
+  point(x, y);
+  const r = floor(random(4));
+  switch (r) {
+    case 0:
+      x = x + 1;
+      break;
+    case 1:
+      x = x - 1;
+      break;
+    case 2:
+      y = y + 1;
+      break;
+    case 3:
+      y = y - 1;
+      break;
+  }
+}
